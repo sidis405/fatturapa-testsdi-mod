@@ -9,17 +9,6 @@ services:
       context: .
     restart: always
 
-  db:
-    container_name: sdi_db
-    image: postgres:10.5
-    restart: always
-    environment:
-      - POSTGRES_DB=${SDI_DB_NAME}
-      - POSTGRES_USER=${SDI_DB_USER}
-      - POSTGRES_PASSWORD=${SDI_DB_PASS}
-    ports:
-      - 5433:5432
-
   adminer:
     container_name: sdi_adminer
     image: adminer
@@ -37,4 +26,3 @@ services:
     restart: always
     depends_on:
       - php
-      - db

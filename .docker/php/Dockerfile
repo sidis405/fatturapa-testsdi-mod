@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y \
         zip
 RUN docker-php-ext-install -j$(nproc) soap \
     && docker-php-ext-install -j$(nproc) pgsql \
-    && docker-php-ext-install -j$(nproc) pdo_pgsql
+    && docker-php-ext-install -j$(nproc) pdo_pgsql \
+    && docker-php-ext-install -j$(nproc) pdo_mysql
 WORKDIR /app
 COPY . /app/
 VOLUME /app
